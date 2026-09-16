@@ -76,9 +76,44 @@ def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
 
 
 
-def three_del(grid_x, grid_y, matrix):
+def three_del(grid_x, grid_y, grid):
+    i = 0
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+            if grid[i][j] != 0:
+                if grid[i][j] == grid[i][j+1]:
+                    if grid[i][j] == grid[i][j+2]:
+                        grid[i][j] = 0
+                        grid[i][j+1] = 0
+                        grid[i][j+2] = 0
+                if grid[i][j] == grid[i+1][j]:
+                    if grid[i][j] == grid[i+2][j]:
+                        grid[i][j] = 0
+                        grid[i+1][j] = 0
+                        grid[i+2][j] = 0
+            j = j + 1
+        i = i + 1
 
-def fall(grid_x, grid_y, matrix):
+
+def fall(grid_x, grid_y, grid):
+    i = 0
+    while i < grid_y:
+            j = 0
+            while j < grid_x:
+                if grid[i][j] == 0:
+                    if i == 0:
+                        grid[i][j] = random.randint(1,4)
+                    else:
+                        l = i
+                        while l > 0:
+                            grid[l][j] = grid[l-1][j]
+                            l = l - 1
+                        grid[l][j] = random.randint(1,4)
+                j = j + 1
+            i = i + 1
+
+
 
 def mousePressed():
 
