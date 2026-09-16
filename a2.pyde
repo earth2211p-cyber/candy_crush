@@ -1,5 +1,25 @@
 import random
 
+class Candy():
+    def __init__(self, color, size, pos_x, pos_y):
+        self.color = color
+        self.size = size
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+
+    def draw_candy(self):
+        if self.color == 1:
+            fill(255,0,0)
+        elif self.color == 2:
+            fill(0,255,0)
+        elif self.color == 3:
+            fill(0,0,255)
+        elif self.color == 4:
+            fill(255,255,0)
+        ellipse(self.pos_x,self.pos_y,self.size,self.size)
+
+
+
 def setup():
     size(500,500)
 
