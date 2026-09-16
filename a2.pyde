@@ -59,8 +59,21 @@ def draw_grid(grid_x, grid_y, scr_sizex, scr_sizey):
         i = i + 1
 
 
-def visaul(grid_x, grid_y, scr_sizex, scr_sizey, grid):
-    
+def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
+    i = 0
+    x = scr_sizex / grid_x
+    y = scr_sizey / grid_y
+    half_x = (scr_sizex / grid_x)/2
+    half_y = (scr_sizey / grid_y)/2
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+            if grid[i][j] != 0:
+                c = Candy(grid[i][j], 50, (j+1)*x-half_x, (i+1)*y-half_y)
+                c.draw_candy()
+            j = j + 1
+        i = i + 1
+
 
 
 def three_del(grid_x, grid_y, matrix):
