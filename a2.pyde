@@ -1,8 +1,20 @@
 import random
 
-def setup()
+def setup():
+    size(500,500)
 
-def get_candy(gridm, grid_size):
+def get_candy(grid, grid_size):
+    i = 0
+    grid_hold = []
+    while i < grid_size + 3:
+        j = 0
+        while j < grid_size + 3:
+            grid_hold.append(0)
+            j = j + 1
+        grid.append(grid_hold)
+        grid_hold = []
+        i = i + 1
+        
 
 def fillin(grid_x, grid_y, matrix):
 
