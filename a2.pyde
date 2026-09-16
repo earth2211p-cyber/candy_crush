@@ -17,6 +17,14 @@ def get_candy(grid, grid_size):
         
 
 def fillin(grid_x, grid_y, matrix):
+    i = 0
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+            if matrix[i][j] == 0:
+                matrix[i][j] = random.randint(1,4)
+            j = j + 1
+        i = i + 1
 
 def visaul(grid_x, grid_y, scr_sizex, scr_sizey, matrix):
 
