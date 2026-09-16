@@ -36,17 +36,32 @@ def get_candy(grid, grid_size):
         i = i + 1
         
 
-def fillin(grid_x, grid_y, matrix):
+def fillin(grid_x, grid_y, grid):
     i = 0
     while i < grid_y:
         j = 0
         while j < grid_x:
-            if matrix[i][j] == 0:
-                matrix[i][j] = random.randint(1,4)
+            if grid[i][j] == 0:
+                grid[i][j] = random.randint(1,4)
             j = j + 1
         i = i + 1
 
-def visaul(grid_x, grid_y, scr_sizex, scr_sizey, matrix):
+def draw_grid(grid_x, grid_y, scr_sizex, scr_sizey):
+    x = scr_sizex / grid_x
+    y = scr_sizey / grid_y
+    i = 1
+    while i < grid_x:
+        line(i*x,0,i*x,scr_sizey)
+        i = i + 1
+    i = 1
+    while i < grid_y:
+        line(0,i*y,scr_sizex,i*y)
+        i = i + 1
+
+
+def visaul(grid_x, grid_y, scr_sizex, scr_sizey, grid):
+    
+
 
 def three_del(grid_x, grid_y, matrix):
 
