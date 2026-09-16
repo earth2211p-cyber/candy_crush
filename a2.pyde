@@ -1,3 +1,4 @@
+# ณัฐวรรธน์ อุทัยนฤมล 6901012610013
 import random
 
 class Candy():
