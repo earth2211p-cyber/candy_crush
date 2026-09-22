@@ -67,8 +67,6 @@ def draw_grid(grid_x, grid_y, scr_sizex, scr_sizey):
 
 
 def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
-    global half_x
-    global half_y
     i = 0
     x = scr_sizex / grid_x
     y = scr_sizey / grid_y
@@ -127,6 +125,7 @@ def fall(grid_x, grid_y, grid):
 
 
 def mousePressed():
+    global grid_x, grid_y,half_x, half_y
     i = 0
     while i < grid_y:
         j = 0
@@ -141,6 +140,7 @@ def mousePressed():
 
 
 def mouseReleased(grid_x, grid_y):
+    global grid_x, grid_y, half_x, half_y
     i = 0
     while i < grid_y:
         j = 0
@@ -151,6 +151,7 @@ def mouseReleased(grid_x, grid_y):
                 swapholder[1][1] = j 
         j = j + 1
     i = i + 1
+    swap()
 
 def swap():
     candy_holder = 0
