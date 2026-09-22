@@ -23,10 +23,11 @@ class Candy():
 
 def setup():
     size(500,500)
-    grid_x = []
-    grid_y = []
+    grid_posx = []
+    grid_posy = []
     grid = []
     grid_hold = []
+    swapholder = [[0,0],[0,0]]
 
 def get_candy(grid_size):
     i = 0
@@ -36,8 +37,8 @@ def get_candy(grid_size):
             grid_hold.append(0)
             j = j + 1
         grid.append(grid_hold)
-        grid_x.append(grid_hold)
-        grid_y.append(grid_hold)
+        grid_posx.append(grid_hold)
+        grid_posy.append(grid_hold)
         grid_hold = []
         i = i + 1
         
@@ -66,6 +67,8 @@ def draw_grid(grid_x, grid_y, scr_sizex, scr_sizey):
 
 
 def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
+    global half_x
+    global half_y
     i = 0
     x = scr_sizex / grid_x
     y = scr_sizey / grid_y
@@ -75,8 +78,8 @@ def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
         j = 0
         while j < grid_x:
             if grid[i][j] != 0:
-                grid_x[i][j] = (j+1)*x-half_x
-                grid_y[i][j] = (i+1)*y-half_y
+                grid_posx[i][j] = (j+1)*x-half_x
+                grid_posy[i][j] = (i+1)*y-half_y
                 c = Candy(grid[i][j], 50, (j+1)*x-half_x, (i+1)*y-half_y)
                 c.draw_candy()
             j = j + 1
@@ -123,9 +126,27 @@ def fall(grid_x, grid_y, grid):
 
 
 
-def mousePressed():
+def mousePressed(grid_x, grid_y):
+    i = 0
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx + half_x:
+            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy + half_y:
+                swapholder[0][0] = i
+                swapholder[0][1] = j 
 
-def mouseReleased():
+
+
+def mouseReleased(grid_x, grid_y):
+    i = 0
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx + half_x:
+            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy + half_y:
+                swapholder[1][0] = i
+                swapholder[1][1] = j 
 
 def swap():
 
