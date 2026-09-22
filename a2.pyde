@@ -126,15 +126,17 @@ def fall(grid_x, grid_y, grid):
 
 
 
-def mousePressed(grid_x, grid_y):
+def mousePressed():
     i = 0
     while i < grid_y:
         j = 0
         while j < grid_x:
-        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx + half_x:
-            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy + half_y:
+        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
+            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
                 swapholder[0][0] = i
                 swapholder[0][1] = j 
+        j = j + 1
+    i = i + 1
 
 
 
@@ -143,12 +145,26 @@ def mouseReleased(grid_x, grid_y):
     while i < grid_y:
         j = 0
         while j < grid_x:
-        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx + half_x:
-            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy + half_y:
+        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
+            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
                 swapholder[1][0] = i
                 swapholder[1][1] = j 
+        j = j + 1
+    i = i + 1
 
 def swap():
+    candy_holder = 0
+    if swapholder[0][0] == swapholder[1][0]:
+        if swapholder[0][1] - 1 == swapholder[1][1] or swapholder[0][1] + 1 == swapholder[1][1]:
+            candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
+            grid[swapholder[0][0], swapholder[0][1]] = grid[swapholder[1][0], swapholder[1][1]]
+            grid[swapholder[1][0], swapholder[1][1]] = candy_holder
+    elif swapholder[0][1] == swapholder[1][1]:
+        if swapholder[0][0] - 1 == swapholder[1][0] or swapholder[0][0] + 1 == swapholder[1][0]:
+            candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
+            grid[swapholder[0][0], swapholder[0][1]] = grid[swapholder[1][0], swapholder[1][1]]
+            grid[swapholder[1][0], swapholder[1][1]] = candy_holder
+
 
 
 def draw():
