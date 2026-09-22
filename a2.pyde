@@ -158,13 +158,13 @@ def swap():
     if swapholder[0][0] == swapholder[1][0]:
         if swapholder[0][1] - 1 == swapholder[1][1] or swapholder[0][1] + 1 == swapholder[1][1]:
             candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
-            grid[swapholder[0][0], swapholder[0][1]] = grid[swapholder[1][0], swapholder[1][1]]
-            grid[swapholder[1][0], swapholder[1][1]] = candy_holder
+            grid[swapholder[0][0]][swapholder[0][1]] = grid[swapholder[1][0]][swapholder[1][1]]
+            grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
     elif swapholder[0][1] == swapholder[1][1]:
         if swapholder[0][0] - 1 == swapholder[1][0] or swapholder[0][0] + 1 == swapholder[1][0]:
             candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
-            grid[swapholder[0][0], swapholder[0][1]] = grid[swapholder[1][0], swapholder[1][1]]
-            grid[swapholder[1][0], swapholder[1][1]] = candy_holder
+            grid[swapholder[0][0]][swapholder[0][1]] = grid[swapholder[1][0]][swapholder[1][1]]
+            grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
 
 
 
