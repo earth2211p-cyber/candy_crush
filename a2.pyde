@@ -23,16 +23,21 @@ class Candy():
 
 def setup():
     size(500,500)
-
-def get_candy(grid, grid_size):
-    i = 0
+    grid_x = []
+    grid_y = []
+    grid = []
     grid_hold = []
+
+def get_candy(grid_size):
+    i = 0
     while i < grid_size + 3:
         j = 0
         while j < grid_size + 3:
             grid_hold.append(0)
             j = j + 1
         grid.append(grid_hold)
+        grid_x.append(grid_hold)
+        grid_y.append(grid_hold)
         grid_hold = []
         i = i + 1
         
@@ -70,6 +75,8 @@ def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
         j = 0
         while j < grid_x:
             if grid[i][j] != 0:
+                grid_x[i][j] = (j+1)*x-half_x
+                grid_y[i][j] = (i+1)*y-half_y
                 c = Candy(grid[i][j], 50, (j+1)*x-half_x, (i+1)*y-half_y)
                 c.draw_candy()
             j = j + 1
@@ -117,6 +124,11 @@ def fall(grid_x, grid_y, grid):
 
 
 def mousePressed():
+
+def mouseReleased():
+
+def swap():
+
 
 def draw():
 
