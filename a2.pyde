@@ -53,25 +53,25 @@ def fillin(grid_x, grid_y, grid):
             j = j + 1
         i = i + 1
 
-def draw_grid(grid_x, grid_y, scr_sizex, scr_sizey):
-    x = scr_sizex / grid_x
-    y = scr_sizey / grid_y
+def draw_grid(grid_x, grid_y):
+    x = width / grid_x
+    y = height / grid_y
     i = 1
     while i < grid_x:
-        line(i*x,0,i*x,scr_sizey)
+        line(i*x,0,i*x,height)
         i = i + 1
     i = 1
     while i < grid_y:
-        line(0,i*y,scr_sizex,i*y)
+        line(0,i*y,width,i*y)
         i = i + 1
 
 
-def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
+def visual(grid_x, grid_y):
     i = 0
-    x = scr_sizex / grid_x
-    y = scr_sizey / grid_y
-    half_x = (scr_sizex / grid_x)/2
-    half_y = (scr_sizey / grid_y)/2
+    x = width / grid_x
+    y = height / grid_y
+    half_x = x/2
+    half_y = y/2
     while i < grid_y:
         j = 0
         while j < grid_x:
@@ -85,7 +85,7 @@ def visual(grid_x, grid_y, scr_sizex, scr_sizey, grid):
 
 
 
-def three_del(grid_x, grid_y, grid):
+def three_del(grid_x, grid_y):
     i = 0
     while i < grid_y:
         j = 0
@@ -105,7 +105,7 @@ def three_del(grid_x, grid_y, grid):
         i = i + 1
 
 
-def fall(grid_x, grid_y, grid):
+def fall(grid_x, grid_y):
     i = 0
     while i < grid_y:
             j = 0
@@ -139,7 +139,7 @@ def mousePressed():
 
 
 
-def mouseReleased(grid_x, grid_y):
+def mouseReleased():
     global grid_x, grid_y, half_x, half_y
     i = 0
     while i < grid_y:
