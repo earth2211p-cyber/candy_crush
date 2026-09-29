@@ -23,6 +23,9 @@ class Candy():
 
 def setup():
     size(500,500)
+    grid_size = 5
+    grid_x = 5
+    grid_y = 5
     grid_posx = []
     grid_posy = []
     grid = []
@@ -43,7 +46,7 @@ def get_candy(grid_size):
         i = i + 1
         
 
-def fillin(grid_x, grid_y, grid):
+def fillin(grid_x, grid_y):
     i = 0
     while i < grid_y:
         j = 0
@@ -105,7 +108,7 @@ def three_del(grid_x, grid_y):
         i = i + 1
 
 
-def fall(grid_x, grid_y):
+def candy_fall(grid_x, grid_y):
     i = 0
     while i < grid_y:
             j = 0
@@ -130,10 +133,10 @@ def mousePressed():
     while i < grid_y:
         j = 0
         while j < grid_x:
-        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
-            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
-                swapholder[0][0] = i
-                swapholder[0][1] = j 
+            if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
+                if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
+                    swapholder[0][0] = i
+                    swapholder[0][1] = j 
         j = j + 1
     i = i + 1
 
@@ -145,10 +148,10 @@ def mouseReleased():
     while i < grid_y:
         j = 0
         while j < grid_x:
-        if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
-            if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
-                swapholder[1][0] = i
-                swapholder[1][1] = j 
+            if mouseX > grid_posx[i][j] - half_x and mouseX < grid_posx[i][j] + half_x:
+                if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
+                    swapholder[1][0] = i
+                    swapholder[1][1] = j 
         j = j + 1
     i = i + 1
     swap()
@@ -169,4 +172,15 @@ def swap():
 
 
 def draw():
+    global grid_size
+    global grid_x
+    global grid_y
+    background(255)
+    get_candy(grid_size)
+    fillin(grid_x, grid_y)
+    draw_grid(grid_x, grid_y)
+    visual(grid_x, grid_y)
+    three_del(grid_x, grid_y)
+    candy_fall(grid_x, grid_y)
+    swap()
 
