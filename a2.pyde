@@ -198,8 +198,7 @@ def setup():
     fillin(grid_x, grid_y)
 
 def draw():
-    global grid_x
-    global grid_y
+    global grid_x, grid_y
     background(255)
     draw_grid(grid_x, grid_y)
     visual(grid_x, grid_y)
