@@ -36,13 +36,13 @@ def get_candy(grid_size):
     i = 0
     while i < grid_size + 3:
         j = 0
+        grid_hold = []
         while j < grid_size + 3:
             grid_hold.append(0)
             j = j + 1
-        grid.append(grid_hold)
-        grid_posx.append(grid_hold)
-        grid_posy.append(grid_hold)
-        grid_hold = []
+        grid.append(list(grid_hold))
+        grid_posx.append(list(grid_hold))
+        grid_posy.append(list(grid_hold))
         i = i + 1
         
 
