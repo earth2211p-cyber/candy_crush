@@ -20,18 +20,6 @@ class Candy():
         ellipse(self.pos_x,self.pos_y,self.size,self.size)
 
 
-
-def setup():
-    size(500,500)
-    grid_size = 5
-    grid_x = 5
-    grid_y = 5
-    grid_posx = []
-    grid_posy = []
-    grid = []
-    grid_hold = []
-    swapholder = [[0,0],[0,0]]
-
 def get_candy(grid_size):
     i = 0
     while i < grid_size + 3:
@@ -155,8 +143,8 @@ def mousePressed():
                 if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
                     swapholder[0][0] = i
                     swapholder[0][1] = j 
-        j = j + 1
-    i = i + 1
+            j = j + 1
+        i = i + 1
 
 
 
@@ -170,9 +158,10 @@ def mouseReleased():
                 if mouseY > grid_posy[i][j] - half_y and mouseY < grid_posy[i][j] + half_y:
                     swapholder[1][0] = i
                     swapholder[1][1] = j 
-        j = j + 1
-    i = i + 1
+            j = j + 1
+        i = i + 1
     swap()
+
 
 def swap():
     global swapholder
@@ -193,18 +182,27 @@ def swap():
             grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
             swapholder = [[0,0],[0,0]]
 
-
+def setup():
+    global grid_size, grid_x, grid_y, grid_posx, grid_posy, grid, swapholder, half_x, half_y
+    grid_size = 5
+    grid_x = 5
+    grid_y = 5
+    grid_posx = []
+    grid_posy = []
+    grid = []
+    swapholder = [[0,0],[0,0]]
+    half_x = 0
+    half_y = 0
+    size(500,500)
+    get_candy(grid_size)
+    fillin(grid_x, grid_y)
 
 def draw():
-    global grid_size
     global grid_x
     global grid_y
     background(255)
-    get_candy(grid_size)
-    fillin(grid_x, grid_y)
     draw_grid(grid_x, grid_y)
     visual(grid_x, grid_y)
     three_del(grid_x, grid_y)
     candy_fall(grid_x, grid_y)
-    swap()
 
