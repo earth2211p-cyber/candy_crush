@@ -70,6 +70,8 @@ def draw_grid(grid_x, grid_y):
 
 
 def visual(grid_x, grid_y):
+    global half_x
+    global half_y
     i = 0
     x = width / grid_x
     y = height / grid_y
