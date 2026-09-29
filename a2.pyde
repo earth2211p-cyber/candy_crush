@@ -110,6 +110,23 @@ def three_del(grid_x, grid_y):
         i = i + 1
 
 
+def is_three_del():
+    i = 0
+    while i < grid_y:
+        j = 0
+        while j < grid_x:
+            if grid[i][j] != 0:
+                if grid[i][j] == grid[i][j+1]:
+                    if grid[i][j] == grid[i][j+2]:
+                        return True
+                if grid[i][j] == grid[i+1][j]:
+                    if grid[i][j] == grid[i+2][j]:
+                        return True
+            j = j + 1
+        i = i + 1
+    return False
+    
+
 def candy_fall(grid_x, grid_y):
     i = 0
     while i < grid_y:
