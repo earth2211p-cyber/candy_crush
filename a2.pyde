@@ -125,7 +125,7 @@ def is_three_del():
             j = j + 1
         i = i + 1
     return False
-    
+
 
 def candy_fall(grid_x, grid_y):
     i = 0
@@ -143,7 +143,6 @@ def candy_fall(grid_x, grid_y):
                         grid[l][j] = random.randint(1,4)
                 j = j + 1
             i = i + 1
-
 
 
 def mousePressed():
@@ -176,17 +175,23 @@ def mouseReleased():
     swap()
 
 def swap():
-    candy_holder = 0
+    global swapholder
+    is_adjacent = False
     if swapholder[0][0] == swapholder[1][0]:
         if swapholder[0][1] - 1 == swapholder[1][1] or swapholder[0][1] + 1 == swapholder[1][1]:
-            candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
-            grid[swapholder[0][0]][swapholder[0][1]] = grid[swapholder[1][0]][swapholder[1][1]]
-            grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
+            is_adjacent = True
     elif swapholder[0][1] == swapholder[1][1]:
         if swapholder[0][0] - 1 == swapholder[1][0] or swapholder[0][0] + 1 == swapholder[1][0]:
+            is_adjacent = True
+    if is_adjacent == True:
+        candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
+        grid[swapholder[0][0]][swapholder[0][1]] = grid[swapholder[1][0]][swapholder[1][1]]
+        grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
+        if is_three_del() == False:
             candy_holder = grid[swapholder[0][0]][swapholder[0][1]]
             grid[swapholder[0][0]][swapholder[0][1]] = grid[swapholder[1][0]][swapholder[1][1]]
             grid[swapholder[1][0]][swapholder[1][1]] = candy_holder
+            swapholder = [[0,0],[0,0]]
 
 
 
