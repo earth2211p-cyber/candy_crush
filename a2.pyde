@@ -132,6 +132,26 @@ def candy_fall(grid_x, grid_y):
                 j = j + 1
             i = i + 1
 
+def save():
+    i = 0
+    while i < len(grid) - 3:
+        row_string = ""
+        j = 0
+        while j < len(grid[i]):
+            if grid[i][j] == 1:
+                row_string += "R"
+            elif grid[i][j] == 2:
+                row_string += "G"
+            elif grid[i][j] == 3:
+                row_string += "B"
+            elif grid[i][j] == 4:
+                row_string += "Y"
+            j = j + 1
+        holder.append(row_string + "\n")
+        i = i + 1
+    with open("save.txt", "w") as f:   
+       f.writelines(holder)
+
 
 def mousePressed():
     global grid_x, grid_y,half_x, half_y
