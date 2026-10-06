@@ -153,6 +153,27 @@ def save():
        f.writelines(holder)
 
 
+def load():
+    global grid
+    i = 0
+    with open("save.txt", "r") as f:
+        for line in f:
+            line = line.strip()
+            j = 0
+            while j < len(line):
+                if line[j] == "R":
+                    grid[i][j] = 1
+                elif line[j] == "G":
+                    grid[i][j] = 2
+                elif line[j] == "B":
+                    grid[i][j] = 3
+                elif line[j] == "Y":
+                    grid[i][j] = 4
+                j += 1
+            i +=1
+
+
+
 def mousePressed():
     global grid_x, grid_y,half_x, half_y
     i = 0
