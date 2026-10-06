@@ -133,6 +133,8 @@ def candy_fall(grid_x, grid_y):
             i = i + 1
 
 def save():
+    global grid, grid_x, grid_y
+    holder = []
     i = 0
     while i < len(grid) - 3:
         row_string = ""
@@ -151,6 +153,7 @@ def save():
         i = i + 1
     with open("save.txt", "w") as f:   
        f.writelines(holder)
+    println("Game Saved!")
 
 
 def load():
@@ -171,11 +174,17 @@ def load():
                     grid[i][j] = 4
                 j += 1
             i +=1
+    println("Game Loaded!")
 
 
 
 def mousePressed():
     global grid_x, grid_y,half_x, half_y
+    if mouseY > 420 and mouseY < 480:
+        if mouseX > 90 and mouseX < 200:
+            save()
+        elif mouseX > 300 and mouseY < 410:
+            load()
     i = 0
     while i < grid_y:
         j = 0
@@ -225,9 +234,9 @@ def swap():
 
 def setup():
     global grid_size, grid_x, grid_y, grid_posx, grid_posy, grid, swapholder, half_x, half_y
-    grid_size = 5
-    grid_x = 7
-    grid_y = 7
+    grid_size = 10
+    grid_x = 10
+    grid_y = 10
     grid_posx = []
     grid_posy = []
     grid = []
