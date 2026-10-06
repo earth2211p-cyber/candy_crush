@@ -17,7 +17,7 @@ class Candy():
             fill(0,0,255)
         elif self.color == 4:
             fill(255,255,0)
-        ellipse(self.pos_x,self.pos_y,self.size,self.size)
+        ellipse(self.pos_x, self.pos_y, self.size, self.size)
 
 
 def get_candy(grid_size):
@@ -34,7 +34,7 @@ def get_candy(grid_size):
         i = i + 1
         
 
-def fillin(grid_x, grid_y):
+def fill_candy(grid_x, grid_y):
     i = 0
     while i < grid_y:
         j = 0
@@ -46,13 +46,13 @@ def fillin(grid_x, grid_y):
 
 def draw_grid(grid_x, grid_y):
     x = width / grid_x
-    y = height / grid_y
+    y = (height-100) / grid_y
     i = 1
     while i < grid_x:
-        line(i*x,0,i*x,height)
+        line(i*x,0,i*x,height-100)
         i = i + 1
     i = 1
-    while i < grid_y:
+    while i < grid_y + 1:
         line(0,i*y,width,i*y)
         i = i + 1
 
@@ -62,7 +62,7 @@ def visual(grid_x, grid_y):
     global half_y
     i = 0
     x = width / grid_x
-    y = height / grid_y
+    y = (height-100) / grid_y
     half_x = x/2
     half_y = y/2
     while i < grid_y:
@@ -185,8 +185,8 @@ def swap():
 def setup():
     global grid_size, grid_x, grid_y, grid_posx, grid_posy, grid, swapholder, half_x, half_y
     grid_size = 5
-    grid_x = 5
-    grid_y = 5
+    grid_x = 7
+    grid_y = 7
     grid_posx = []
     grid_posy = []
     grid = []
@@ -195,11 +195,18 @@ def setup():
     half_y = 0
     size(500,500)
     get_candy(grid_size)
-    fillin(grid_x, grid_y)
+    fill_candy(grid_x, grid_y)
+
 
 def draw():
     global grid_x, grid_y
     background(255)
+    textSize(50)
+    fill(0)
+    text("SAVE", 90, 470)
+    textSize(50)
+    fill(0)
+    text("LOAD", 300, 470)
     draw_grid(grid_x, grid_y)
     visual(grid_x, grid_y)
     three_del(grid_x, grid_y)
