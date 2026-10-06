@@ -183,7 +183,7 @@ def mousePressed():
     if mouseY > 420 and mouseY < 480:
         if mouseX > 90 and mouseX < 200:
             save()
-        elif mouseX > 300 and mouseY < 410:
+        elif mouseX > 300 and mouseX < 410:
             load()
     i = 0
     while i < grid_y:
